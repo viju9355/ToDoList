@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>To Do List</title>
+    <style>
+      input[type="checkbox"]:checked+label
+      {
+        text-decoration: line-through red;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Add Task..." id="Input">
+    <button id="AddTaskButton">Add</button>
+    <div id="Container"></div>
+    <script>
+      let AddTaskButton=document.querySelector("#AddTaskButton");
+      //Function of Add Task.
+      AddTaskButton.addEventListener("click",()=>{
+        let InputData=document.querySelector("#Input").value;
+        let CheckboxInput=document.createElement("input");
+        CheckboxInput.type="checkbox";
+        let label=document.createElement("label");// Label the inner text to checkboxes.
+        label.innerText=InputData;
+        let NewTaskDiv=document.createElement("div");
+        NewTaskDiv.appendChild(CheckboxInput);
+        NewTaskDiv.appendChild(label);
+        let Position=document.querySelector("#Container");
+        Position.appendChild(NewTaskDiv);
+        // Remove the text from input box after adding it.
+        document.querySelector("#Input").value="";
+      })
+    </script>
+  </body>
+</html>
